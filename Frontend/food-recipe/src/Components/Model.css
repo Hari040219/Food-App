@@ -1,0 +1,38 @@
+/* Backdrop overlay */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* semi-transparent black */
+  z-index: 999; /* ensures it sits on top of other content */
+}
+
+/* Modal/dialog */
+.model {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center it */
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  z-index: 1000; /* above the backdrop */
+  min-width: 300px;
+  max-width: 90%;
+  max-height: 80%;
+  overflow-y: auto; /* scroll if content is too big */
+  font-family: sans-serif;
+}
+
+/* Optional: smooth fade-in animation */
+.model {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}

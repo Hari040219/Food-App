@@ -1,0 +1,276 @@
+/* Footer - Main Container */
+.footer {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 5%;
+  text-align: center;
+  position: relative;
+  margin-top: auto;
+  overflow: hidden;
+  animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animated background gradient */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 107, 0.1), 
+    rgba(255, 211, 61, 0.1), 
+    rgba(107, 207, 127, 0.1), 
+    rgba(77, 150, 255, 0.1)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+/* Floating particles effect */
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 60% 70%, rgba(255, 211, 61, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 80% 40%, rgba(107, 207, 127, 0.3) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 40% 80%, rgba(77, 150, 255, 0.3) 1px, transparent 1px);
+  background-size: 200px 200px, 150px 150px, 180px 180px, 220px 220px;
+  animation: floatParticles 20s linear infinite;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+@keyframes floatParticles {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-100px); }
+}
+
+/* Copyright Text Styling */
+.footer p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, #ffffff, #e0e7ff, #ffd93d);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGlow 3s ease-in-out infinite, textGradient 4s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+@keyframes textGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(255, 211, 61, 0.5)); }
+}
+
+@keyframes textGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Hover effect for copyright text */
+.footer p:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 30px rgba(255, 211, 61, 0.8));
+  animation-duration: 1s;
+}
+
+/* Heart icon animation */
+.footer p::before {
+  content: '💛';
+  margin-right: 8px;
+  display: inline-block;
+  animation: heartbeat 2s ease-in-out infinite;
+  font-size: 1.1em;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Copyright symbol enhancement */
+.footer p::after {
+  content: '✨';
+  margin-left: 8px;
+  display: inline-block;
+  animation: sparkle 3s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  25% { transform: scale(1.2) rotate(90deg); opacity: 1; }
+  50% { transform: scale(0.8) rotate(180deg); opacity: 0.6; }
+  75% { transform: scale(1.1) rotate(270deg); opacity: 1; }
+}
+
+/* Decorative border line */
+.footer {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 107, 107, 0.5), 
+    rgba(255, 211, 61, 0.5), 
+    rgba(107, 207, 127, 0.5), 
+    rgba(77, 150, 255, 0.5), 
+    transparent
+  ) 1;
+  animation: borderGlow 4s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-top-width: 2px; }
+  50% { border-top-width: 4px; }
+}
+
+/* Ripple effect on click */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer:active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple 0.6s ease-out;
+  z-index: 1;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+  }
+}
+
+/* Enhanced responsive design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 3%;
+  }
+  
+  .footer p {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 4%;
+  }
+  
+  .footer p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+  
+  .footer p::before,
+  .footer p::after {
+    font-size: 0.9em;
+  }
+}
+
+/* Dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .footer::before,
+  .footer::after,
+  .footer p::before,
+  .footer p::after {
+    animation: none;
+  }
+  
+  .footer p {
+    animation: none;
+    background: linear-gradient(135deg, #ffffff, #e0e7ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Sticky footer behavior */
+.footer {
+  margin-top: auto;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Interactive hover effects */
+.footer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer:hover::before {
+  animation-duration: 4s;
+}
+
+.footer:hover p {
+  animation-duration: 1.5s;
+}
+
+/* Focus states for accessibility */
+.footer p:focus {
+  outline: 2px solid rgba(255, 211, 61, 0.6);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
